@@ -14,7 +14,6 @@ use Filament\Tables\Table;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 
 // Table Components
@@ -25,7 +24,6 @@ use Filament\Tables\Columns\BadgeColumn;
 class SupplierResource extends Resource
 {
     protected static ?string $model = Supplier::class;
-
     protected static ?string $navigationIcon = 'heroicon-o-building-storefront';
 
     public static function form(Form $form): Form
@@ -56,10 +54,6 @@ class SupplierResource extends Resource
                     ])
                     ->required(),
 
-                DatePicker::make('tanggal_beli')
-                    ->label('Tanggal Beli')
-                    ->required(),
-
                 FileUpload::make('gambar')
                     ->label('Gambar')
                     ->image()
@@ -72,17 +66,9 @@ class SupplierResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('nama')
-                    ->label('Nama')
-                    ->searchable(),
-
-                TextColumn::make('alamat')
-                    ->label('Alamat')
-                    ->limit(30),
-
-                TextColumn::make('no_handphone')
-                    ->label('No HP'),
-
+                TextColumn::make('nama')->label('Nama')->searchable(),
+                TextColumn::make('alamat')->label('Alamat')->limit(30),
+                TextColumn::make('no_handphone')->label('No HP'),
                 BadgeColumn::make('kategori')
                     ->label('Kategori')
                     ->colors([
@@ -92,14 +78,7 @@ class SupplierResource extends Resource
                         'Frozen Food' => 'info',
                         'General Merchandise' => 'gray',
                     ]),
-
-                TextColumn::make('tanggal_beli')
-                    ->label('Tanggal Beli')
-                    ->date(),
-
-                ImageColumn::make('gambar')
-                    ->label('Gambar')
-                    ->size(50),
+                ImageColumn::make('gambar')->label('Gambar')->size(50),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),

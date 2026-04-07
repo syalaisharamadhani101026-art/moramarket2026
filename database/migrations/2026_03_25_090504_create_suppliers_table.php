@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('alamat'); // Alamat
             $table->string('no_handphone'); // no hp
             $table->string('kategori'); // Kategori
-            $table->date('tanggal_beli'); // Tanggal beli
+           
             $table->string('gambar'); // Path gambar
             $table->timestamps();
         });

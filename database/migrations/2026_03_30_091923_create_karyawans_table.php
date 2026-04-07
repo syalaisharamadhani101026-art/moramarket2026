@@ -11,19 +11,23 @@ return new class extends Migration
      */
     public function up(): void
     {
-       Schema::create('karyawans', function (Blueprint $table) {
-    $table->id();
-    $table->string('nama');
-    $table->string('email');
-    $table->string('no_telp')->nullable();
-    $table->text('alamat')->nullable();
-    $table->string('jabatan');
-    $table->integer('gaji')->nullable();
-    $table->string('jenis_kelamin');
-    $table->boolean('status')->default(true);
-    
-    $table->timestamps(); // ⬅️ WAJIB
-});
+        Schema::create('karyawans', function (Blueprint $table) {
+            $table->id();
+            $table->string('nip')->unique();
+            $table->string('nik')->unique();
+            $table->string('nama');
+            $table->string('email')->unique();
+            $table->string('no_telp')->nullable();
+            $table->text('alamat')->nullable();
+            $table->string('jabatan');
+            $table->integer('gaji')->nullable();
+            $table->string('jenis_kelamin');
+            $table->string('tempat_lahir');
+            $table->date('tanggal_lahir');
+            $table->boolean('status')->default(true);
+            
+            $table->timestamps(); // tetap seperti punyamu
+        });
     }
 
     /**

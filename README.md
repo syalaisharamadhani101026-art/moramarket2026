@@ -9,7 +9,7 @@
 
 ## About Laravel
 
-
+Laravel is a web application framework with expressive. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
 - [Powerful dependency injection container](https://laravel.com/docs/container).

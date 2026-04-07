@@ -12,13 +12,20 @@ class Karyawan extends Model
     protected $table = 'karyawans';
 
     protected $fillable = [
+        'nip',
+        'nik',
         'nama',
         'email',
         'no_telp',
         'alamat',
         'jabatan',
-        'gaji',
         'jenis_kelamin',
         'status',
+        'tempat_lahir',
+        'tanggal_lahir',
+    ];
+
+    protected $casts = [
+        'tanggal_lahir' => 'date',
     ];
 }
